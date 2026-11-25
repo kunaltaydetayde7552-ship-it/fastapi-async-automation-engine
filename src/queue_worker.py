@@ -94,7 +94,7 @@ class AsyncQueueWorker:
             try:
                 await self._worker_task
             except asyncio.CancelledError:
-                pass
+                _worker_cancelled = True
             self._worker_task = None
 
     async def join(self) -> None:
